@@ -169,7 +169,6 @@ To stream via VLC or Liquidsoap for supporting playlists and multiple mp3 files,
 
 To listen, point an audio player to `http://127.0.0.1:8001/test`.
 
-The admin API is available at `http://127.0.0.1:8001/api`.
 
 #### Vagrant
 
