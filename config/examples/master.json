@@ -40,7 +40,7 @@
     },
 	"redis": {
 		"server": "redis://localhost:6379"
-	}
+	},
     "analytics": {
       "es_uri":             "xxx",
       "finalize_secs":  300,
