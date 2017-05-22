@@ -154,15 +154,21 @@ To run StreamMachine locally with no service dependencies, try the included `con
 
 The included configuration has an MP3 stream configured at /test, with the
 source password "testing".  The source input listener is on port 8002, and
-that is where the broadcast should be pointed. To connect using an included
-source utility, run:
+that is where the broadcast should be pointed. To connect and stream audio, you can use a variety of input stream providers:
+
+##### Streammachine Test Utility
 
     ./streammachine-util-cmd source --port 8002 --stream test \
     --password testing ./test/files/mp3/mp3-44100-128-s.mp3
 
+##### VLC or Liquidsoap
+
+To stream via VLC or Liquidsoap for supporting playlists and multiple mp3 files, please refer to the [documentation](https://github.com/StreamMachine/StreamMachine/wiki/Setting-up-a-local-stream-with-VLC-or-LiquidSoap).
+
+#### Listening
+
 To listen, point an audio player to `http://127.0.0.1:8001/test`.
 
-The admin API is available at `http://127.0.0.1:8001/api`.
 
 #### Vagrant
 
