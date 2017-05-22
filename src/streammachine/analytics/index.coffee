@@ -38,9 +38,13 @@ module.exports = class Analytics
         @log.debug "Connecting to Elasticsearch at #{es_uri} with prefix of #{@idx_prefix}"
         debug "Connecting to ES at #{es_uri}, prefix #{@idx_prefix}"
 
+        apiVersion = '1.7'
+        if (typeof @opts.config.es_api_version != 'undefined')
+            apiVersion = @opts.config.es_api_version.toString()
+
         @es = new elasticsearch.Client
             host:           es_uri
-            apiVersion:     @opts.config.es_api_version || 1.7
+            apiVersion:     apiVersion
             requestTimeout: @opts.config.request_timeout || 30000
             #log: "trace"
 

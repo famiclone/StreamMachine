@@ -44,6 +44,6 @@
     "analytics": {
       "es_uri":             "xxx",
       "finalize_secs":  300,
-      "es_api_version": "1.7" 
+      "es_api_version": "1.7"
     },
 }

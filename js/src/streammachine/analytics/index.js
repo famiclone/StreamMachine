@@ -24,7 +24,7 @@ debug = require("debug")("sm:analytics");
 
 module.exports = Analytics = (function() {
   function Analytics(opts, cb) {
-    var es_uri;
+    var apiVersion, es_uri;
     this.opts = opts;
     this._uri = URL.parse(this.opts.config.es_uri);
     this.log = this.opts.log;
@@ -36,9 +36,13 @@ module.exports = Analytics = (function() {
     this.idx_prefix = this._uri.pathname.substr(1);
     this.log.debug("Connecting to Elasticsearch at " + es_uri + " with prefix of " + this.idx_prefix);
     debug("Connecting to ES at " + es_uri + ", prefix " + this.idx_prefix);
+    apiVersion = '1.7';
+    if (typeof this.opts.config.es_api_version !== 'undefined') {
+      apiVersion = this.opts.config.es_api_version.toString();
+    }
     this.es = new elasticsearch.Client({
       host: es_uri,
-      apiVersion: this.opts.config.es_api_version || 1.7,
+      apiVersion: apiVersion,
       requestTimeout: this.opts.config.request_timeout || 30000
     });
     this.idx_batch = new BatchedQueue({
