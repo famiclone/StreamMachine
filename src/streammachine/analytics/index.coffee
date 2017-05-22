@@ -40,7 +40,7 @@ module.exports = class Analytics
 
         @es = new elasticsearch.Client
             host:           es_uri
-            apiVersion:     @opts.config.es_api_version || '1.4'
+            apiVersion:     @opts.config.es_api_version || 1.7
             requestTimeout: @opts.config.request_timeout || 30000
             #log: "trace"
 
