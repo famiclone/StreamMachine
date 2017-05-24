@@ -110,7 +110,7 @@ describe "Analytics", ->
 
         es = new elasticsearch.Client
             host:           "http://#{_uri.hostname}:#{_uri.port||9200}"
-            apiVersion:     "1.4"
+            apiVersion:     "1.7"
             requestTimeout: 2000
 
         idx_prefix = _uri.pathname.substr(1)
