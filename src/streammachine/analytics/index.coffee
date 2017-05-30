@@ -46,7 +46,6 @@ module.exports = class Analytics
             host:           es_uri
             apiVersion:     apiVersion
             requestTimeout: @opts.config.request_timeout || 30000
-            #log: "trace"
 
         @idx_batch  = new BatchedQueue
             batch:      @opts.config.index_batch
