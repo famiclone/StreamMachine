@@ -67,7 +67,7 @@ module.exports =
                 lifecycle:
                     name: "streammachine-hls"
                     rollover_alias: "streammachine-hls-listens"
-mappings:
+        mappings:
             properties:
                 _.extend {}, CoreObj,
                     name:

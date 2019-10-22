@@ -92,33 +92,30 @@ module.exports = {
           rollover_alias: "streammachine-hls-listens"
         }
       }
+    },
+    mappings: {
+      properties: _.extend({}, CoreObj, {
+        name: {
+          type: "text"
+        },
+        duration: {
+          type: "float"
+        },
+        kbytes: {
+          type: "long"
+        },
+        offsetSeconds: {
+          type: "integer",
+          doc_values: true
+        },
+        contentTime: {
+          type: "date",
+          format: "date_time",
+          doc_values: true
+        }
+      })
     }
   }
 };
-
-({
-  mappings: {
-    properties: _.extend({}, CoreObj, {
-      name: {
-        type: "text"
-      },
-      duration: {
-        type: "float"
-      },
-      kbytes: {
-        type: "long"
-      },
-      offsetSeconds: {
-        type: "integer",
-        doc_values: true
-      },
-      contentTime: {
-        type: "date",
-        format: "date_time",
-        doc_values: true
-      }
-    })
-  }
-});
 
 //# sourceMappingURL=es_templates.js.map
