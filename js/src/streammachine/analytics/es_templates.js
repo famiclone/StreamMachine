@@ -64,7 +64,11 @@ module.exports = {
     settings: {
       index: {
         number_of_shards: 3,
-        number_of_replicas: 1
+        number_of_replicas: 1,
+        lifecycle: {
+          name: "streammachine-hls",
+          rollover_alias: "streammachine-hls-sessions"
+        }
       }
     },
     mappings: {
@@ -82,32 +86,39 @@ module.exports = {
     settings: {
       index: {
         number_of_shards: 3,
-        number_of_replicas: 1
-      }
-    },
-    mappings: {
-      properties: _.extend({}, CoreObj, {
-        name: {
-          type: "text"
-        },
-        duration: {
-          type: "float"
-        },
-        kbytes: {
-          type: "long"
-        },
-        offsetSeconds: {
-          type: "integer",
-          doc_values: true
-        },
-        contentTime: {
-          type: "date",
-          format: "date_time",
-          doc_values: true
+        number_of_replicas: 1,
+        lifecycle: {
+          name: "streammachine-hls",
+          rollover_alias: "streammachine-hls-listens"
         }
-      })
+      }
     }
   }
 };
+
+({
+  mappings: {
+    properties: _.extend({}, CoreObj, {
+      name: {
+        type: "text"
+      },
+      duration: {
+        type: "float"
+      },
+      kbytes: {
+        type: "long"
+      },
+      offsetSeconds: {
+        type: "integer",
+        doc_values: true
+      },
+      contentTime: {
+        type: "date",
+        format: "date_time",
+        doc_values: true
+      }
+    })
+  }
+});
 
 //# sourceMappingURL=es_templates.js.map

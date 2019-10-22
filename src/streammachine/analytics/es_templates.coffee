@@ -50,6 +50,9 @@ module.exports =
             index:
                 number_of_shards:   3
                 number_of_replicas: 1
+                lifecycle:
+                    name: "streammachine-hls"
+                    rollover_alias: "streammachine-hls-sessions"
         mappings:
             properties: _.extend {}, CoreObj,
                 duration:
@@ -61,7 +64,10 @@ module.exports =
             index:
                 number_of_shards:   3
                 number_of_replicas: 1
-        mappings:
+                lifecycle:
+                    name: "streammachine-hls"
+                    rollover_alias: "streammachine-hls-listens"
+mappings:
             properties:
                 _.extend {}, CoreObj,
                     name:
